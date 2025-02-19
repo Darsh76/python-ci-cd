@@ -1,10 +1,8 @@
-import sys
-sys.path.insert(0, ".")
-
-from app.main import app
 import unittest
 from app.main import app
+import sys
 
+sys.path.insert(0, ".")
 
 class TestMain(unittest.TestCase):
     def test_home(self):
@@ -12,6 +10,6 @@ class TestMain(unittest.TestCase):
         response = tester.get('/')
         self.assertEqual(response.status_code, 200)
 
-
 if __name__ == '__main__':
     unittest.main()
+
