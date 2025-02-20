@@ -54,5 +54,5 @@ jobs:
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
-            pkill -f "python app/main.py" || true
+            pgrep -f "python app/main.py" && pkill -f "python app/main.py" || echo "No process found"
             nohup python app/main.py > output.log 2>&1 &  # Start in background
